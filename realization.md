@@ -48,6 +48,7 @@ SELECT MIN(payment) AS min_pay, MAX(payment) AS max_pay, AVG(payment) as avg_pay
 FROM production.orders
 ```
 MIN         MAX         AVG                     is_null
+
 60.00000	6360.00000	2289.9360000000000000   0
 
 Данные по оплатам выглядят корректно, нет слишком большого разброса между MAX, MIN и AVG, Null-значения отсутствуют.
@@ -57,6 +58,7 @@ SELECT MIN(user_id) AS min_user_id, MAX(user_id) AS max_user_id, COUNT(DISTINCT(
 FROM production.orders
 ```
 min_user_id     max_user_id     total_users     is_null
+
 0	            999	            1000	        0
 
 Аналогично 'payments', проблем в данных не вижу. id пользователя - это его номер от 0 до 999, всего 1000. Null отсутствуют.
@@ -69,6 +71,7 @@ WHERE
 status = 4
 ```
 is_null     total_status_4
+
 0	        4991
 
 Здесь также не возникло замечаний.
