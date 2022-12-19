@@ -125,7 +125,7 @@ CREATE VIEW analysis.products AS
 CREATE VIEW analysis.users AS
 	SELECT * FROM production.users;
 ```
-В задании идёт речь о пяти таблицах. Полагаю, таблицу 'orderstatuses' можно исклить из выборки.
+В задании идёт речь о пяти таблицах. Полагаю, таблицу 'orderstatuses' можно исключиить из выборки.
 
 
 ### 1.4.2. Напишите DDL-запрос для создания витрины.**
