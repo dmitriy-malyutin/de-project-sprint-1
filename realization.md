@@ -105,6 +105,7 @@ o.bonus_payment > 0
 Напишите SQL-запросы для создания пяти VIEW (по одному на каждую таблицу) и выполните их. Для проверки предоставьте код создания VIEW.
 
 ```SQL
+
 --Впишите сюда ваш ответ
 CREATE VIEW analysis.orderitems AS
 	SELECT * FROM production.orderitems;
@@ -142,7 +143,7 @@ CREATE TABLE analysis.dm_rfm_segments (user_id Int, recency Int, frequency Int, 
 Наконец, реализуйте расчет витрины на языке SQL и заполните таблицу, созданную в предыдущем пункте.
 
 Для решения предоставьте код запроса.
-
+```SQL
 --Узнаем количество пользователей на одну категорию (5 категорий)
 SELECT (COUNT(DISTINCT(user_id))/5)
 FROM analysis.orders
