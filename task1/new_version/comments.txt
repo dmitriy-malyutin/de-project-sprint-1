@@ -1,0 +1,52 @@
+Привет!
+По ошибке была проверена первая версия кода, вчера поторопился и залил не работающий вариант. Вот этот кусок
+```SQL
+
+INSERT INTO analysis.dm_rfm_segments (user_id, recency, frequency, monetary_value)
+ 
+SELECT m.user_id,
+ 
+	CASE 
+ 
+		WHEN ROW_NUMBER() OVER() > 0 AND ROW_NUMBER() OVER() < 198 THEN 5
+ 
+		WHEN ROW_NUMBER() OVER() > 197 AND ROW_NUMBER() OVER() < 395 THEN 4
+ 
+		WHEN ROW_NUMBER() OVER() > 394 AND ROW_NUMBER() OVER() < 593 THEN 3
+ 
+		WHEN ROW_NUMBER() OVER() > 592 AND ROW_NUMBER() OVER() < 790 THEN 2
+ 
+		WHEN ROW_NUMBER() OVER() > 789 THEN 1
+ 
+		END recency,
+ 
+	CASE 
+ 
+		WHEN ROW_NUMBER() OVER() > 0 AND ROW_NUMBER() OVER() < 198 THEN 5
+ 
+		WHEN ROW_NUMBER() OVER() > 197 AND ROW_NUMBER() OVER() < 395 THEN 4
+ 
+		WHEN ROW_NUMBER() OVER() > 394 AND ROW_NUMBER() OVER() < 593 THEN 3
+ 
+		WHEN ROW_NUMBER() OVER() > 592 AND ROW_NUMBER() OVER() < 790 THEN 2
+ 
+		WHEN ROW_NUMBER() OVER() > 789 THEN 1
+ 
+		END frequency,
+ 
+	CASE 
+ 
+		WHEN ROW_NUMBER() OVER() > 0 AND ROW_NUMBER() OVER() < 198 THEN 5
+ 
+		WHEN ROW_NUMBER() OVER() > 197 AND ROW_NUMBER() OVER() < 395 THEN 4
+ 
+		WHEN ROW_NUMBER() OVER() > 394 AND ROW_NUMBER() OVER() < 593 THEN 3
+ 
+		WHEN ROW_NUMBER() OVER() > 592 AND ROW_NUMBER() OVER() < 790 THEN 2
+ 
+		WHEN ROW_NUMBER() OVER() > 789 THEN 1
+ 
+		END monetary_value
+ 
+```
+работает некорректно, нумерация происходит единожды и подходит только для колонки 'recency', где строится впервые.
